@@ -11,13 +11,10 @@ import pandas as pd
 import numpy as np
 
 
-# _LoginToken=""
-_chainRIC = "0#CL:"
-_startDate="2019-11-01T00:00:00.000Z"
-_endDate="2019-12-31T00:00:00.000Z"
-# _chainRIC = "0#.SPX"
-# _startDate="2019-09-01T00:00:00.000Z"
-# _endDate="2019-12-31T00:00:00.000Z"
+_LoginToken=""
+_chainRIC = "0#.SETI"
+_startDate="2017-06-05T00:00:00.000Z"
+_endDate="2017-06-17T00:00:00.000Z"
 
 def RequestNewToken(username="",password=""):
     _AuthenURL = "https://hosted.datascopeapi.reuters.com/RestApi/v1/Authentication/RequestToken"

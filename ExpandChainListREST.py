@@ -12,8 +12,29 @@ import numpy as np
 
 
 # _LoginToken=""
-_chainRIC = "0#CL:"
-_startDate="2019-11-01T00:00:00.000Z"
+# _chainRIC = ["0#CL:"
+#             ,"1#CL:"
+#             ,"2#CL:"
+#             ,"3#CL:"
+#             ,"4#CL:"
+#             ,"5#CL:"
+#             ,"6#CL:"
+#             ,"7#CL:"
+#             ,"8#CL:"
+#             ,"9#CL:"
+#             ]
+_chainRIC = ["0#CL+"
+            # ,"1#CL+"
+            # ,"2#CL+"
+            # ,"3#CL+"
+            # ,"4#CL+"
+            # ,"5#CL+"
+            # ,"6#CL+"
+            # ,"7#CL+"
+            # ,"8#CL+"
+            # ,"9#CL+"
+            ]
+_startDate="1996-01-01T00:00:00.000Z"
 _endDate="2019-12-31T00:00:00.000Z"
 # _chainRIC = "0#.SPX"
 # _startDate="2019-09-01T00:00:00.000Z"
@@ -73,19 +94,18 @@ def main():
             print("Authorization Token:"+_token+"\n")
             _jsonquery={
                         "Request": {
-                            "ChainRics": [
-                                    _chainRIC
-                                    ],
+                            "ChainRics": _chainRIC,
                             "Range": {
                                 "Start": _startDate,
                                 "End": _endDate
                             }
                          }
             }
-            print("Start Expanding Chain "+_chainRIC+"\n")
+            _chainRICList = ",".join(_chainRIC)
+            print("Start Expanding Chain "+_chainRICList+"\n")
             df=ExpandChain(_token,_jsonquery)
             if df.empty:
-                print("Unable to expand chain "+_chainRIC) 
+                print("Unable to expand chain "+_chainRICList) 
                 return
 
             ricCount=len(df['Identifier'])
